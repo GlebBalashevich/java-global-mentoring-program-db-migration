@@ -1,15 +1,16 @@
 package com.epam.mentoring.recruitment.dto;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 import com.epam.mentoring.recruitment.model.Specialty;
+import com.epam.mentoring.recruitment.model.SpecialtyEnum;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import org.springframework.validation.annotation.Validated;
 
 @Data
 public class CandidateDto {
@@ -23,7 +24,9 @@ public class CandidateDto {
     private String familyName;
 
     @NotNull
-    private Specialty specialty;
+    private SpecialtyEnum specialty;
+
+    private List<SpecialtyDto> specialties;
 
     @Valid
     @NotNull

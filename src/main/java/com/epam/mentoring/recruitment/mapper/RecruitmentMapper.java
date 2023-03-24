@@ -2,8 +2,10 @@ package com.epam.mentoring.recruitment.mapper;
 
 import com.epam.mentoring.recruitment.dto.CandidateDto;
 import com.epam.mentoring.recruitment.dto.CompanyDto;
+import com.epam.mentoring.recruitment.dto.SpecialtyDto;
 import com.epam.mentoring.recruitment.model.Candidate;
 import com.epam.mentoring.recruitment.model.Company;
+import com.epam.mentoring.recruitment.model.Specialty;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
@@ -16,5 +18,9 @@ public interface RecruitmentMapper {
     CompanyDto toCompanyDto(Company company);
 
     Company toCompany(CompanyDto companyDto);
+
+    Specialty toSpecialty(SpecialtyDto specialtyDto);
+
+    SpecialtyDto toSpecialtyDto(Specialty specialty);
 
 }
