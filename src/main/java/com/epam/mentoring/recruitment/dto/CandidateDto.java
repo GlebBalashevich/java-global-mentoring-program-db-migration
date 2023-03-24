@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.UUID;
 
 import com.epam.mentoring.recruitment.model.Specialty;
-import com.epam.mentoring.recruitment.model.SpecialtyEnum;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -24,9 +23,7 @@ public class CandidateDto {
     private String familyName;
 
     @NotNull
-    private SpecialtyEnum specialty;
-
-    private List<SpecialtyDto> specialties;
+    private Specialty specialty;
 
     @Valid
     @NotNull
