@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+#  recruitment-app:
+#    build: ./
+#    environment:
+#      SPRING_DATASOURCE_USERNAME: ${POSTGRESQL_USERNAME}
+#      SPRING_DATASOURCE_PASSWORD: ${POSTGRESQL_PASSWORD}
+#      SPRING_DATASOURCE_URL: ${POSTGRESQL_URL}
+#    ports:
+#      - "8080:8080"
+
+  postgresql:
+    image: 'postgres:15.2'
+    container_name: postgresql
+    environment:
+      POSTGRES_USER:  ${POSTGRESQL_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRESQL_PASSWORD}
+      POSTGRES_DB: ${POSTGRESQL_DB}
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    depends_on:
+      - postgresql
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
