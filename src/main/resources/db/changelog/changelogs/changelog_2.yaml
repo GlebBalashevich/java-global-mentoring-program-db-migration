@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      remark: updated tables with auditing
+      author: gleb_b
+      changes:
+        - tagDatabase:
+            tag: version_2.0
+        - addColumn:
+            tableName: candidates
+            columns:
+              - column:
+                  name: create_date
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_update_date
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+        - addColumn:
+            tableName: companies
+            columns:
+              - column:
+                  name: create_date
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_update_date
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+

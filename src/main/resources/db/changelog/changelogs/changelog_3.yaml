@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      remark: move specialties to separate table
+      author: gleb_b
+      changes:
+        - tagDatabase:
+            tag: version_3.0
+        - createTable:
+            tableName: specialties
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    defaultValueComputed: uuid_generate_v4()
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: create_date
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_update_date
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+        - addColumn:
+            tableName: candidates
+            columns:
+              - column:
+                  name: specialty_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: fk_specialty_id
+                    references: specialties(id)
+

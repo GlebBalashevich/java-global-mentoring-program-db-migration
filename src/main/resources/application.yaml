@@ -2,3 +2,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+  flyway:
+    enabled: false
+  liquibase:
+    enabled: false
